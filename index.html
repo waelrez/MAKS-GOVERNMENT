@@ -4,507 +4,831 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MAKS CITY | Government</title>
+<title>MAKS CITY | الحكومة الرسمية</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
-:root {
- --bg:#080a0e;--panel:#11151d;--panel2:#171d27;
- --red:#e32636;--white:#f5f6fa;--muted:#8992a3;
- --border:#252d3a;--green:#25bd83;
+:root{
+--navy:#101e32;
+--navy2:#182b45;
+--gold:#c5a66b;
+--gold2:#e4ca91;
+--bg:#f3f5f8;
+--white:#fff;
+--text:#26354a;
+--muted:#718096;
+--border:#e2e7ee;
+--red:#a8323d;
+--green:#287a61;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--white);
+body{margin:0;background:var(--bg);color:var(--text);
 font-family:'Cairo',Arial,sans-serif}
-button,input,textarea,select{font-family:inherit}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
 button{cursor:pointer}
+.topline{height:5px;background:var(--gold)}
+.topbar{
+ background:#0c1829;color:#d9e1ed;
+ padding:7px 5%;display:flex;justify-content:space-between;
+ font-size:11px;gap:12px;flex-wrap:wrap
+}
 header{
- background:#0c1017;border-bottom:1px solid var(--border);
- padding:16px 5%;display:flex;align-items:center;
- justify-content:space-between;position:sticky;top:0;z-index:10
+ background:var(--white);padding:19px 5%;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:20px;border-bottom:1px solid var(--border)
 }
-.logo{font-size:23px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--red)}
-.header-right{display:flex;gap:12px;align-items:center}
-.status{font-size:12px;color:var(--green)}
-.login-btn,.primary{
- background:var(--red);color:white;border:0;
- padding:10px 18px;border-radius:7px;font-weight:800
+.brand{display:flex;align-items:center;gap:14px}
+.emblem{
+ width:62px;height:62px;border:2px solid var(--gold);
+ border-radius:50%;display:grid;place-items:center;
+ color:var(--gold);font-size:29px;background:#101e32
 }
-.container{width:92%;max-width:1400px;margin:30px auto}
+.brand h1{font-size:23px;margin:0;color:var(--navy);font-weight:900}
+.brand p{margin:0;color:var(--muted);font-size:11px}
+.header-info{text-align:left;font-size:11px;color:var(--muted)}
+.header-info strong{display:block;color:var(--navy);font-size:13px}
+nav{
+ background:var(--navy);padding:0 4%;display:flex;
+ overflow-x:auto;white-space:nowrap;scrollbar-width:thin
+}
+nav button{
+ border:0;background:none;color:#dce4ef;padding:16px 17px;
+ font-size:12px;font-weight:700;border-bottom:3px solid transparent
+}
+nav button:hover,nav button.active{
+ background:#1b304c;color:var(--gold2);border-bottom-color:var(--gold)
+}
 .hero{
- background:linear-gradient(110deg,#1c1015,#121721 65%,#10141d);
- border:1px solid #49232a;border-radius:13px;padding:32px;
- position:relative;overflow:hidden
+ background:linear-gradient(100deg,#102039ed,#172d49ee),
+ url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1800&q=80') center/cover;
+ min-height:350px;color:white;padding:55px 7%;
+ display:flex;align-items:center
 }
-.hero:after{content:"MC";position:absolute;left:25px;top:-50px;
-font-size:180px;color:#ffffff08;font-weight:900}
-.eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:3px}
-.hero h1{font-size:35px;margin:8px 0}
-.hero p{color:#abb2c0;margin:0;max-width:650px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);
-gap:14px;margin:20px 0}
-.stat,.card{
- background:var(--panel);border:1px solid var(--border);
- border-radius:10px;padding:19px
+.hero-content{max-width:760px}
+.hero .small{color:var(--gold2);font-size:12px;letter-spacing:2px;font-weight:800}
+.hero h2{font-size:39px;line-height:1.5;margin:10px 0}
+.hero p{color:#d7dfeb;max-width:650px;font-size:14px;line-height:2}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.btn{
+ border:1px solid var(--gold);background:var(--gold);
+ color:#15243a;padding:11px 19px;font-weight:800;border-radius:3px
 }
-.stat small{color:var(--muted)}
-.stat strong{display:block;font-size:29px;margin-top:7px}
-.stat .red{color:var(--red)}
-.layout{display:grid;grid-template-columns:245px 1fr;gap:18px}
-.sidebar{background:var(--panel);border:1px solid var(--border);
-border-radius:10px;padding:14px;height:max-content}
-.nav-title{color:var(--muted);font-size:11px;margin:12px 10px}
-.nav{
- width:100%;background:transparent;color:#b7bfcc;border:0;
- text-align:right;padding:12px;border-radius:7px;margin:3px 0;
- font-size:14px
+.btn-outline{background:transparent;color:white;border:1px solid #ffffff80}
+.container{max-width:1300px;width:92%;margin:30px auto}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:18px}
+.stats{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:13px;
+ margin-top:-45px;position:relative
 }
-.nav:hover,.nav.active{background:#30171d;color:white}
-.nav.active{border-right:3px solid var(--red)}
-.content{min-width:0}
-.section-title{font-size:22px;font-weight:900;margin:0 0 5px}
-.subtitle{font-size:13px;color:var(--muted);margin-bottom:20px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.department{display:flex;align-items:center;gap:14px}
-.dept-icon{background:#2a171d;color:#ff5966;padding:15px;
-border-radius:9px;font-size:24px}
-.department h3{margin:0;font-size:16px}
-.department p{margin:3px 0;color:var(--muted);font-size:12px}
-.tag{font-size:11px;color:var(--green)}
-.list{display:grid;gap:12px}
-.item{background:var(--panel);border:1px solid var(--border);
-padding:17px;border-radius:9px}
-.item h3{margin:0 0 7px;font-size:16px}
-.item p{color:#b5bdc9;font-size:13px;white-space:pre-wrap}
-.meta{color:var(--muted);font-size:11px}
-.badge{background:#35181e;color:#ff6976;border-radius:5px;
-padding:4px 8px;font-size:11px}
-form{display:grid;gap:12px;margin-bottom:22px}
-input,textarea,select{
- background:#0b0e14;color:white;border:1px solid var(--border);
- padding:12px;border-radius:7px;width:100%;outline:none
+.stat{
+ background:white;padding:21px;border:1px solid var(--border);
+ border-top:3px solid var(--gold);box-shadow:0 5px 20px #15243a0c
 }
-input:focus,textarea:focus{border-color:var(--red)}
-textarea{min-height:100px;resize:vertical}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.secondary{background:#242b37;color:white;border:1px solid #343d4c;
-padding:9px 13px;border-radius:6px}
-.danger{background:#421b21;color:#ff7983;border:0;
-padding:8px 12px;border-radius:6px}
-.hidden{display:none!important}
-.empty{text-align:center;color:var(--muted);padding:35px}
-footer{text-align:center;color:#687080;padding:30px;font-size:12px}
-.login-overlay{position:fixed;inset:0;background:#000c;
-display:grid;place-items:center;z-index:30;padding:15px}
-.login-box{background:var(--panel);border:1px solid var(--border);
-padding:28px;border-radius:12px;width:100%;max-width:400px}
-.login-box h2{margin-top:0}
-.login-box input{margin:8px 0}
-.notice{padding:12px;background:#261b1c;border-radius:7px;
-font-size:12px;color:#ffb3b7;margin:12px 0}
-@media(max-width:750px){
- .stats{grid-template-columns:repeat(2,1fr)}
+.stat span{font-size:12px;color:var(--muted)}
+.stat strong{display:block;font-size:26px;color:var(--navy);margin-top:7px}
+.stat small{font-size:10px;color:var(--green)}
+.layout{display:grid;grid-template-columns:245px 1fr;gap:24px;margin-top:32px}
+.sidebar{
+ background:white;border:1px solid var(--border);
+ height:max-content;position:sticky;top:10px
+}
+.side-heading{
+ background:var(--navy);color:var(--gold2);
+ padding:13px 16px;font-size:12px;font-weight:800
+}
+.side-link{
+ display:block;width:100%;border:0;background:white;
+ padding:11px 16px;text-align:right;color:#536176;
+ font-size:12px;border-bottom:1px solid #edf0f4
+}
+.side-link:hover,.side-link.active{
+ background:#f3f0e8;color:var(--navy);
+ border-right:3px solid var(--gold);font-weight:800
+}
+main{min-width:0}
+.page{display:none}
+.page.active{display:block;animation:appear .2s}
+@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.page-heading{
+ border-bottom:2px solid var(--gold);padding-bottom:13px;margin-bottom:20px
+}
+.page-heading h2{margin:0;color:var(--navy);font-size:25px}
+.page-heading p{color:var(--muted);font-size:12px;margin:4px 0}
+.panel{
+ background:white;border:1px solid var(--border);
+ padding:20px;margin-bottom:17px
+}
+.panel-title{
+ font-size:15px;color:var(--navy);font-weight:900;
+ border-right:3px solid var(--gold);padding-right:10px;margin:0 0 17px
+}
+.intro{font-size:13px;line-height:2.2;color:#58677b}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.three{grid-template-columns:repeat(3,1fr)}
+.card{
+ background:white;border:1px solid var(--border);
+ padding:17px;position:relative;min-width:0
+}
+.card:hover{border-color:var(--gold)}
+.card-icon{font-size:24px;margin-bottom:8px}
+.card h3{font-size:14px;color:var(--navy);margin:0 0 5px}
+.card p{font-size:11px;line-height:2;color:var(--muted);margin:0}
+.card small{font-size:10px;color:var(--green)}
+.minister{
+ display:flex;gap:13px;align-items:center;
+ background:white;border:1px solid var(--border);
+ padding:14px;margin-bottom:10px
+}
+.avatar{
+ width:53px;height:53px;flex-shrink:0;border-radius:50%;
+ background:var(--navy);color:var(--gold2);
+ display:grid;place-items:center;font-size:21px
+}
+.minister h3{font-size:13px;margin:0;color:var(--navy)}
+.minister p{font-size:11px;margin:3px 0;color:var(--muted)}
+.minister small{color:var(--gold);font-size:10px}
+.badge{
+ display:inline-block;padding:4px 8px;background:#f1eee5;
+ color:#866c3e;font-size:10px;margin-top:4px
+}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{background:var(--navy);color:white;padding:12px;text-align:right}
+td{padding:12px;border-bottom:1px solid var(--border);text-align:right}
+tr:hover td{background:#faf9f6}
+.document{
+ border:1px solid var(--border);background:white;padding:18px;
+ margin-bottom:12px;border-right:3px solid var(--gold)
+}
+.document h3{font-size:14px;color:var(--navy);margin:0 0 6px}
+.document p{font-size:12px;color:#667489;line-height:2;margin:0}
+.document small{font-size:10px;color:var(--gold)}
+.searchbox{
+ width:100%;padding:13px;border:1px solid var(--border);
+ outline:none;background:white;margin-bottom:15px;font-size:12px
+}
+.searchbox:focus{border-color:var(--gold)}
+.timeline{border-right:2px solid var(--gold);padding-right:20px}
+.timeline-item{position:relative;margin-bottom:22px}
+.timeline-item:before{
+ content:"";position:absolute;right:-26px;top:6px;
+ width:10px;height:10px;background:var(--gold);border-radius:50%
+}
+.timeline-item h3{font-size:13px;margin:0;color:var(--navy)}
+.timeline-item p{font-size:11px;color:var(--muted);line-height:2}
+.notice{padding:15px;background:#f4f0e6;border-right:3px solid var(--gold);
+font-size:12px;line-height:2;color:#665538;margin-bottom:16px}
+footer{background:var(--navy);color:#d7dfeb;margin-top:50px;padding:35px 5%}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{color:var(--gold2);font-size:14px}
+footer p,footer a{font-size:11px;color:#b5c1d1;line-height:2}
+.footer-bottom{border-top:1px solid #34445a;margin-top:25px;padding-top:17px;
+font-size:10px;color:#91a0b4}
+@media(max-width:850px){
  .layout{grid-template-columns:1fr}
- .sidebar{display:grid;grid-template-columns:repeat(2,1fr)}
- .nav-title{grid-column:1/-1}
- .grid{grid-template-columns:1fr}
- .hero h1{font-size:26px}
+ .sidebar{position:static;display:grid;grid-template-columns:repeat(2,1fr)}
+ .side-heading{grid-column:1/-1}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .three{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:550px){
  header{padding:12px 4%}
+ .brand h1{font-size:17px}
+ .emblem{width:48px;height:48px}
+ .header-info{display:none}
+ .hero{padding:40px 6%;min-height:300px}
+ .hero h2{font-size:27px}
+ .stats{margin-top:15px}
+ .cards,.three{grid-template-columns:1fr}
+ .container{width:94%}
+ .footer-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
+<div class="topline"></div>
+<div class="topbar">
+ <span>المملكة الافتراضية لمدينة MAKS CITY</span>
+ <span>البوابة الرسمية للمؤسسات الحكومية | MAKS CITY RP</span>
+</div>
+
 <header>
- <div class="logo">MAKS <span>CITY</span></div>
- <div class="header-right">
-  <span class="status">● النظام الحكومي</span>
-  <button class="login-btn" onclick="openLogin()">دخول الإدارة</button>
+ <div class="brand">
+  <div class="emblem">⚜</div>
+  <div>
+   <h1>دولة MAKS CITY</h1>
+   <p>الرئاسة العامة • الحكومة المركزية • المؤسسات الوطنية</p>
+  </div>
+ </div>
+ <div class="header-info">
+  <strong>البوابة الوطنية الرسمية</strong>
+  GOVERNMENT OF MAKS CITY
  </div>
 </header>
 
-<div class="container">
- <section class="hero">
-  <div class="eyebrow">MAKS CITY • OFFICIAL PORTAL</div>
-  <h1>الحكومة المركزية</h1>
-  <p>البوابة الرسمية لإدارة مدينة MAKS CITY.
-  القوانين والقرارات والوزارات والمؤسسات الحكومية.</p>
-  <div class="actions">
-   <button class="primary" onclick="showPage('decisions')">القرارات الرسمية</button>
-   <button class="secondary" onclick="showPage('laws')">دستور المدينة</button>
-  </div>
- </section>
+<nav id="topNav">
+ <button class="active" data-page="home">الرئيسية</button>
+ <button data-page="presidency">رئاسة الدولة</button>
+ <button data-page="cabinet">مجلس الوزراء</button>
+ <button data-page="parliament">البرلمان</button>
+ <button data-page="ministries">الوزارات</button>
+ <button data-page="laws">القوانين</button>
+ <button data-page="decisions">القرارات</button>
+ <button data-page="economy">الاقتصاد</button>
+ <button data-page="projects">المشاريع</button>
+ <button data-page="services">الخدمات</button>
+ <button data-page="news">الأخبار</button>
+</nav>
 
- <section class="stats">
-  <div class="stat"><small>القرارات الحكومية</small>
-   <strong class="red" id="decisionCount">0</strong></div>
-  <div class="stat"><small>القوانين</small>
-   <strong id="lawCount">0</strong></div>
-  <div class="stat"><small>الوزارات</small>
-   <strong>06</strong></div>
-  <div class="stat"><small>حالة الحكومة</small>
-   <strong style="color:var(--green);font-size:20px">نشطة</strong></div>
- </section>
+<section class="hero">
+ <div class="hero-content">
+  <div class="small">OFFICIAL GOVERNMENT WEBSITE • MAKS CITY</div>
+  <h2>معاً من أجل دولة قوية<br>ومدينة متقدمة وآمنة</h2>
+  <p>
+   الموقع الرسمي لحكومة MAKS CITY. المنصة المركزية التي تجمع
+   مؤسسات الدولة والوزارات والتشريعات الوطنية والقرارات الحكومية
+   والخطط الاستراتيجية والمعلومات العامة للمواطنين.
+  </p>
+  <div class="hero-buttons">
+   <button class="btn" onclick="go('cabinet')">التعرف على الحكومة</button>
+   <button class="btn btn-outline" onclick="go('laws')">القوانين الوطنية</button>
+  </div>
+ </div>
+</section>
+
+<div class="container">
+ <div class="stats">
+  <div class="stat"><span>المؤسسات الحكومية</span><strong>18</strong><small>مؤسسات وطنية</small></div>
+  <div class="stat"><span>الوزارات</span><strong>12</strong><small>قطاعات حكومية</small></div>
+  <div class="stat"><span>أعضاء الحكومة</span><strong>15</strong><small>مجلس الوزراء</small></div>
+  <div class="stat"><span>المشاريع الوطنية</span><strong>08</strong><small>برامج استراتيجية</small></div>
+ </div>
 
  <div class="layout">
   <aside class="sidebar">
-   <div class="nav-title">الرئيسية</div>
-   <button class="nav active" data-page="home" onclick="showPage('home')">⌂ الرئيسية</button>
-   <button class="nav" data-page="decisions" onclick="showPage('decisions')">▣ القرارات الحكومية</button>
-   <button class="nav" data-page="laws" onclick="showPage('laws')">⚖ القوانين والمراسيم</button>
-   <div class="nav-title">المؤسسات</div>
-   <button class="nav" data-page="ministries" onclick="showPage('ministries')">▤ الوزارات</button>
-   <button class="nav" data-page="police" onclick="showPage('police')">♜ وزارة الداخلية</button>
-   <button class="nav" data-page="emergency" onclick="showPage('emergency')">✚ الطوارئ والصحة</button>
-   <button class="nav" data-page="economy" onclick="showPage('economy')">▥ المالية والاقتصاد</button>
-   <div class="nav-title">الإدارة</div>
-   <button class="nav" data-page="jobs" onclick="showPage('jobs')">♙ التوظيف الحكومي</button>
-   <button class="nav" data-page="announcements" onclick="showPage('announcements')">◉ الإعلانات</button>
-   <button class="nav" data-page="admin" onclick="showPage('admin')">⚙ لوحة التحكم</button>
+   <div class="side-heading">الدليل الحكومي الرسمي</div>
+   <button class="side-link active" data-page="home">⌂ الصفحة الرئيسية</button>
+   <button class="side-link" data-page="presidency">⚜ رئاسة الدولة</button>
+   <button class="side-link" data-page="cabinet">♙ مجلس الوزراء</button>
+   <button class="side-link" data-page="parliament">▤ البرلمان الوطني</button>
+   <button class="side-link" data-page="ministries">▦ الوزارات</button>
+   <button class="side-link" data-page="departments">▣ المديريات العامة</button>
+   <button class="side-link" data-page="laws">⚖ الدستور والقوانين</button>
+   <button class="side-link" data-page="decisions">▤ المراسيم والقرارات</button>
+   <button class="side-link" data-page="economy">▥ المالية والاقتصاد</button>
+   <button class="side-link" data-page="projects">⌂ المشاريع الوطنية</button>
+   <button class="side-link" data-page="security">♜ الأمن والدفاع</button>
+   <button class="side-link" data-page="education">▤ التعليم والثقافة</button>
+   <button class="side-link" data-page="health">✚ الصحة والطوارئ</button>
+   <button class="side-link" data-page="services">♧ الخدمات العامة</button>
+   <button class="side-link" data-page="appointments">♙ التعيينات الرسمية</button>
+   <button class="side-link" data-page="calendar">▦ الأجندة الوطنية</button>
+   <button class="side-link" data-page="honors">✧ الأوسمة الوطنية</button>
+   <button class="side-link" data-page="news">◉ الأخبار الحكومية</button>
+   <button class="side-link" data-page="contact">✉ التواصل مع الحكومة</button>
   </aside>
 
-  <main class="content">
-   <div id="page"></div>
+  <main>
+
+   <!-- HOME -->
+   <section class="page active" id="home">
+    <div class="page-heading">
+     <h2>الصفحة الرئيسية</h2>
+     <p>الواجهة الرسمية لدولة MAKS CITY</p>
+    </div>
+    <div class="notice">
+     أهلاً بكم في البوابة الرسمية لحكومة MAKS CITY.
+     هنا يمكنكم التعرف على مؤسسات الدولة والحكومة والوزارات
+     والقوانين والقرارات والمشاريع الوطنية.
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">رسالة الحكومة</h3>
+     <p class="intro">
+      تقوم دولة MAKS CITY على مبادئ النظام والعدالة والمساواة
+      واحترام القانون وحماية المواطنين. وتعمل مؤسساتها على تطوير
+      المدينة وتعزيز الأمن وتحسين الخدمات العامة وتنظيم الحياة
+      الاقتصادية والاجتماعية داخل الدولة.
+      <br><br>
+      وتلتزم الحكومة بتطبيق التشريعات وتنظيم المؤسسات العامة
+      وضمان التعاون بين مختلف القطاعات الوطنية لتحقيق الاستقرار
+      والتقدم والازدهار.
+     </p>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">الأخبار والبيانات الرسمية</h3>
+     <div class="timeline" id="homeNews"></div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">المؤسسات الرئيسية</h3>
+     <div class="cards three">
+      <div class="card"><div class="card-icon">⚜</div><h3>رئاسة الدولة</h3><p>السلطة العليا ورئاسة المؤسسات الوطنية.</p></div>
+      <div class="card"><div class="card-icon">🏛</div><h3>الحكومة المركزية</h3><p>تنفيذ السياسات وإدارة الشؤون العامة.</p></div>
+      <div class="card"><div class="card-icon">⚖</div><h3>السلطة القضائية</h3><p>العدالة والفصل في النزاعات.</p></div>
+      <div class="card"><div class="card-icon">▤</div><h3>البرلمان</h3><p>مناقشة القوانين والتشريعات.</p></div>
+      <div class="card"><div class="card-icon">🚔</div><h3>الأمن الوطني</h3><p>حماية المواطنين والنظام العام.</p></div>
+      <div class="card"><div class="card-icon">💰</div><h3>الخزينة العامة</h3><p>إدارة الميزانية والموارد الوطنية.</p></div>
+     </div>
+    </div>
+   </section>
+
+   <!-- PRESIDENCY -->
+   <section class="page" id="presidency">
+    <div class="page-heading"><h2>رئاسة الدولة</h2><p>المؤسسة العليا للدولة والسلطة التنفيذية العليا</p></div>
+    <div class="panel">
+     <div class="card-icon">⚜</div>
+     <h3>رئيس الدولة</h3>
+     <h2 style="color:var(--navy)">WAEL BRlKI</h2>
+     <span class="badge">رئيس دولة MAKS CITY RP</span>
+     <p class="intro">رئاسة الدولة هي المؤسسة العليا التي تشرف على التوجهات الوطنية العامة، وتمثل الدولة وتتابع عمل المؤسسات الدستورية وتصدر المراسيم وفق النظام المعتمد.</p>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">اختصاصات رئاسة الدولة</h3>
+     <div class="cards">
+      <div class="card"><h3>القيادة الوطنية</h3><p>تحديد التوجهات العامة للدولة.</p></div>
+      <div class="card"><h3>المصادقة على القوانين</h3><p>اعتماد التشريعات وفق الإجراءات الدستورية.</p></div>
+      <div class="card"><h3>التعيينات العليا</h3><p>تكليف كبار المسؤولين والمناصب السيادية.</p></div>
+      <div class="card"><h3>الأمن الوطني</h3><p>الإشراف على السياسة الأمنية العامة.</p></div>
+      <div class="card"><h3>العلاقات الخارجية</h3><p>تمثيل الدولة أمام الدول والمؤسسات الأخرى.</p></div>
+      <div class="card"><h3>حالة الطوارئ</h3><p>اتخاذ الإجراءات الاستثنائية وفق الدستور.</p></div>
+     </div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">المؤسسات التابعة للرئاسة</h3>
+     <div class="document"><h3>ديوان رئاسة الدولة</h3><p>تنظيم المواعيد والملفات والمراسلات الرئاسية.</p></div>
+     <div class="document"><h3>الأمانة العامة للرئاسة</h3><p>متابعة تنفيذ التوجيهات الرئاسية.</p></div>
+     <div class="document"><h3>المجلس الأعلى للأمن الوطني</h3><p>دراسة المخاطر والتحديات الأمنية.</p></div>
+     <div class="document"><h3>المستشارية الوطنية</h3><p>تقديم الاستشارات السياسية والقانونية والاقتصادية.</p></div>
+    </div>
+   </section>
+
+   <!-- CABINET -->
+   <section class="page" id="cabinet">
+    <div class="page-heading"><h2>مجلس الوزراء</h2><p>التشكيلة الرسمية للحكومة المركزية</p></div>
+    <div class="notice">تضم الحكومة رئيس الوزراء ونواب الرئيس والوزراء والمسؤولين عن القطاعات الوطنية. الأسماء التالية شخصيات افتراضية مخصصة لسيرفر RP.</div>
+    <div class="panel">
+     <h3 class="panel-title">رئيس الحكومة</h3>
+     <div class="minister"><div class="avatar">♙</div><div><h3>ADAM BENALI</h3><p>رئيس مجلس الوزراء</p><small>PRIME MINISTER</small></div></div>
+     <div class="minister"><div class="avatar">♙</div><div><h3>YASSINE AMRANI</h3><p>نائب رئيس الحكومة</p><small>VICE PRIME MINISTER</small></div></div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">أعضاء مجلس الوزراء</h3>
+     <div id="ministerList"></div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">مهام مجلس الوزراء</h3>
+     <div class="cards">
+      <div class="card"><h3>السياسة العامة</h3><p>اقتراح وتنفيذ البرنامج الحكومي.</p></div>
+      <div class="card"><h3>المشاريع الوطنية</h3><p>إعداد البرامج والمشاريع ومتابعتها.</p></div>
+      <div class="card"><h3>إدارة الوزارات</h3><p>التنسيق بين الوزراء والمؤسسات.</p></div>
+      <div class="card"><h3>الميزانية</h3><p>مناقشة المصروفات والإيرادات.</p></div>
+     </div>
+    </div>
+   </section>
+
+   <!-- PARLIAMENT -->
+   <section class="page" id="parliament">
+    <div class="page-heading"><h2>البرلمان الوطني</h2><p>المؤسسة التشريعية ومجلس ممثلي المواطنين</p></div>
+    <div class="panel">
+     <h3 class="panel-title">رئاسة البرلمان</h3>
+     <div class="minister"><div class="avatar">▤</div><div><h3>OMAR EL MANSOURI</h3><p>رئيس البرلمان الوطني</p><small>SPEAKER OF PARLIAMENT</small></div></div>
+     <p class="intro">يختص البرلمان بمناقشة مشاريع القوانين ودراسة السياسات العامة ومراقبة العمل الحكومي وتنظيم جلسات المساءلة والتصويت.</p>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">اللجان البرلمانية</h3>
+     <div class="cards">
+      <div class="card"><h3>اللجنة الدستورية</h3><p>مراجعة مشاريع القوانين والتعديلات الدستورية.</p></div>
+      <div class="card"><h3>لجنة الأمن والدفاع</h3><p>مناقشة السياسة الأمنية.</p></div>
+      <div class="card"><h3>لجنة المالية</h3><p>مراقبة الميزانية العامة.</p></div>
+      <div class="card"><h3>لجنة الشؤون الاجتماعية</h3><p>التعليم والصحة وحقوق المواطنين.</p></div>
+      <div class="card"><h3>لجنة النقل والبنية التحتية</h3><p>الطرق والمرافق والمشاريع.</p></div>
+      <div class="card"><h3>لجنة الرقابة الحكومية</h3><p>متابعة أداء المؤسسات الحكومية.</p></div>
+     </div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">الإجراءات البرلمانية</h3>
+     <div class="document"><h3>الجلسة العامة</h3><p>مناقشة المواضيع الوطنية والتصويت على المشاريع.</p></div>
+     <div class="document"><h3>الاستجواب البرلماني</h3><p>طلب توضيحات من الوزراء حول أعمال وزاراتهم.</p></div>
+     <div class="document"><h3>اقتراح القوانين</h3><p>تقديم مشاريع تشريعية جديدة.</p></div>
+    </div>
+   </section>
+
+   <!-- MINISTRIES -->
+   <section class="page" id="ministries">
+    <div class="page-heading"><h2>الوزارات الحكومية</h2><p>التشكيلة الوزارية والاختصاصات الرسمية</p></div>
+    <input class="searchbox" id="minSearch" placeholder="ابحث عن وزارة أو قطاع..." oninput="filterMinistries()">
+    <div class="cards" id="ministryGrid"></div>
+   </section>
+
+   <!-- DEPARTMENTS -->
+   <section class="page" id="departments">
+    <div class="page-heading"><h2>المديريات العامة</h2><p>الإدارات والهيئات التابعة للوزارات</p></div>
+    <div id="departmentList"></div>
+   </section>
+
+   <!-- LAWS -->
+   <section class="page" id="laws">
+    <div class="page-heading"><h2>الدستور والقوانين</h2><p>المرجع التشريعي لدولة MAKS CITY</p></div>
+    <div class="notice">جميع القوانين في هذا الموقع تشريعات افتراضية خاصة بعالم Roblox RP وليست قوانين دولة حقيقية.</div>
+    <div class="panel">
+     <h3 class="panel-title">الدستور الوطني</h3>
+     <div class="document"><h3>المادة 1 — طبيعة الدولة</h3><p>MAKS CITY دولة افتراضية مستقلة ضمن عالم لعب الأدوار، وتقوم على التنظيم المؤسسي واحترام القوانين.</p></div>
+     <div class="document"><h3>المادة 2 — السلطات</h3><p>تتكون مؤسسات الدولة من السلطة التنفيذية والتشريعية والقضائية، وتعمل وفق اختصاصات محددة.</p></div>
+     <div class="document"><h3>المادة 3 — حقوق المواطنين</h3><p>لكل مواطن الحق في المعاملة العادلة والكرامة والمشاركة في الحياة العامة وفق قوانين السيرفر.</p></div>
+     <div class="document"><h3>المادة 4 — واجبات المواطنين</h3><p>احترام القوانين والتعاون مع المؤسسات وعدم الإضرار بالممتلكات العامة.</p></div>
+     <div class="document"><h3>المادة 5 — استقلال القضاء</h3><p>تختص الجهات القضائية بالفصل في النزاعات وفق القواعد والإجراءات المعتمدة.</p></div>
+     <div class="document"><h3>المادة 6 — المسؤولية الحكومية</h3><p>يلتزم المسؤولون بأداء واجباتهم واحترام حدود اختصاصاتهم.</p></div>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">القوانين العامة</h3>
+     <div id="lawList"></div>
+    </div>
+   </section>
+
+   <!-- DECISIONS -->
+   <section class="page" id="decisions">
+    <div class="page-heading"><h2>المراسيم والقرارات الرسمية</h2><p>الأرشيف الرسمي للقرارات الحكومية والرئاسية</p></div>
+    <div class="notice">تعرض هذه الصفحة نماذج القرارات الرسمية داخل السيرفر. يمكن استبدال النماذج بالقرارات الحقيقية التي تعتمدها الإدارة.</div>
+    <div id="decisionList"></div>
+   </section>
+
+   <!-- ECONOMY -->
+   <section class="page" id="economy">
+    <div class="page-heading"><h2>وزارة المالية والاقتصاد</h2><p>السياسة المالية والميزانية الوطنية</p></div>
+    <div class="cards three">
+     <div class="card"><h3>الخزينة العامة</h3><p>إدارة الأموال والإيرادات الحكومية.</p></div>
+     <div class="card"><h3>الضرائب والرسوم</h3><p>تنظيم الالتزامات المالية الافتراضية.</p></div>
+     <div class="card"><h3>الاستثمار الوطني</h3><p>تشجيع المشاريع الاقتصادية.</p></div>
+    </div>
+    <div class="panel" style="margin-top:17px">
+     <h3 class="panel-title">الميزانية الحكومية التقديرية</h3>
+     <table>
+      <tr><th>القطاع</th><th>الميزانية الافتراضية</th><th>الأولوية</th></tr>
+      <tr><td>الأمن والشرطة</td><td>2,000,000 $</td><td>عالية</td></tr>
+      <tr><td>الصحة والإسعاف</td><td>1,200,000 $</td><td>عالية</td></tr>
+      <tr><td>التعليم</td><td>900,000 $</td><td>عالية</td></tr>
+      <tr><td>النقل والطرق</td><td>1,500,000 $</td><td>متوسطة</td></tr>
+      <tr><td>الإدارة العامة</td><td>600,000 $</td><td>متوسطة</td></tr>
+      <tr><td>المشاريع الوطنية</td><td>2,000,000 $</td><td>عالية</td></tr>
+     </table>
+     <p class="intro">هذه أرقام RP تجريبية وليست أموالاً حقيقية.</p>
+    </div>
+    <div class="panel">
+     <h3 class="panel-title">المؤسسات المالية</h3>
+     <div class="document"><h3>البنك المركزي</h3><p>السياسة النقدية والنظام المالي الافتراضي.</p></div>
+     <div class="document"><h3>الخزينة الوطنية</h3><p>إدارة الإيرادات والنفقات العامة.</p></div>
+     <div class="document"><h3>ديوان المحاسبة</h3><p>مراقبة الحسابات والمصروفات الحكومية.</p></div>
+    </div>
+   </section>
+
+   <!-- PROJECTS -->
+   <section class="page" id="projects">
+    <div class="page-heading"><h2>المشاريع الوطنية</h2><p>خطة تطوير مدينة MAKS CITY</p></div>
+    <div class="cards">
+     <div class="card"><div class="card-icon">🏛</div><h3>مشروع العاصمة الإدارية</h3><p>إنشاء مركز حكومي متكامل يضم الوزارات والإدارات.</p><span class="badge">مشروع استراتيجي</span></div>
+     <div class="card"><div class="card-icon">🚔</div><h3>مشروع الأمن الوطني</h3><p>تطوير مراكز الشرطة وأنظمة الاستجابة.</p><span class="badge">مشروع أمني</span></div>
+     <div class="card"><div class="card-icon">🏥</div><h3>مشروع المستشفى الوطني</h3><p>تحسين الخدمات الطبية والطوارئ.</p><span class="badge">مشروع صحي</span></div>
+     <div class="card"><div class="card-icon">🛣</div><h3>مشروع شبكة الطرق</h3><p>تطوير البنية التحتية والنقل العام.</p><span class="badge">مشروع بنية تحتية</span></div>
+     <div class="card"><div class="card-icon">🎓</div><h3>مشروع التعليم الوطني</h3><p>تأسيس منظومة تدريب وتعليم للمواطنين.</p><span class="badge">مشروع اجتماعي</span></div>
+     <div class="card"><div class="card-icon">🏙</div><h3>مشروع تطوير العاصمة</h3><p>تحديث المرافق والمناطق العامة.</p><span class="badge">مشروع عمراني</span></div>
+     <div class="card"><div class="card-icon">💼</div><h3>مشروع فرص العمل</h3><p>دعم الشركات والوظائف داخل المدينة.</p><span class="badge">مشروع اقتصادي</span></div>
+     <div class="card"><div class="card-icon">🌳</div><h3>مشروع البيئة</h3><p>حماية الحدائق والمساحات العامة.</p><span class="badge">مشروع بيئي</span></div>
+    </div>
+   </section>
+
+   <!-- SECURITY -->
+   <section class="page" id="security">
+    <div class="page-heading"><h2>الأمن والدفاع الوطني</h2><p>منظومة الأمن وحماية النظام العام</p></div>
+    <div class="cards">
+     <div class="card"><h3>🚔 المديرية العامة للأمن الوطني</h3><p>تنظيم الشرطة وحماية المواطنين وتطبيق القوانين.</p></div>
+     <div class="card"><h3>🚨 شرطة الطوارئ</h3><p>التدخل في الحوادث والبلاغات العاجلة.</p></div>
+     <div class="card"><h3>🚦 مديرية المرور</h3><p>تنظيم حركة السير والمخالفات.</p></div>
+     <div class="card"><h3>🔎 مديرية التحقيقات</h3><p>متابعة الملفات والتحقيقات داخل RP.</p></div>
+     <div class="card"><h3>🛡️ الحرس الحكومي</h3><p>حماية المنشآت والشخصيات الحكومية داخل اللعبة.</p></div>
+     <div class="card"><h3>🚒 الحماية المدنية</h3><p>الحرائق والإنقاذ والاستجابة للكوارث.</p></div>
+    </div>
+    <div class="panel" style="margin-top:17px">
+     <h3 class="panel-title">نظام الرتب الأمنية</h3>
+     <table>
+      <tr><th>الرتبة</th><th>المستوى</th></tr>
+      <tr><td>مدير عام الأمن</td><td>قيادة عليا</td></tr>
+      <tr><td>نائب المدير العام</td><td>قيادة</td></tr>
+      <tr><td>مراقب عام</td><td>إدارة</td></tr>
+      <tr><td>قائد الشرطة</td><td>قيادة ميدانية</td></tr>
+      <tr><td>ضابط</td><td>إشراف</td></tr>
+      <tr><td>مفتش</td><td>تحقيق</td></tr>
+      <tr><td>شرطي</td><td>تنفيذ</td></tr>
+      <tr><td>متدرب</td><td>تدريب</td></tr>
+     </table>
+    </div>
+   </section>
+
+   <!-- EDUCATION -->
+   <section class="page" id="education">
+    <div class="page-heading"><h2>التعليم والثقافة</h2><p>التنمية البشرية والتعليم الوطني</p></div>
+    <div class="cards">
+     <div class="card"><h3>وزارة التربية والتعليم</h3><p>إدارة المدارس والمؤسسات التعليمية.</p></div>
+     <div class="card"><h3>مديرية الجامعات</h3><p>تنظيم التعليم العالي والتكوين.</p></div>
+     <div class="card"><h3>المعهد الوطني للتدريب</h3><p>تكوين الموظفين والمسؤولين.</p></div>
+     <div class="card"><h3>وزارة الثقافة</h3><p>دعم الفعاليات والأنشطة الثقافية.</p></div>
+    </div>
+   </section>
+
+   <!-- HEALTH -->
+   <section class="page" id="health">
+    <div class="page-heading"><h2>الصحة والطوارئ</h2><p>النظام الصحي الوطني وخدمات الإنقاذ</p></div>
+    <div class="cards">
+     <div class="card"><h3>🏥 المستشفى المركزي</h3><p>الخدمات الطبية والاستشفائية.</p></div>
+     <div class="card"><h3>🚑 الإسعاف الوطني</h3><p>الاستجابة الطبية ونقل المصابين.</p></div>
+     <div class="card"><h3>🚒 إدارة الإطفاء</h3><p>مكافحة الحرائق والإنقاذ.</p></div>
+     <div class="card"><h3>🩺 مديرية الصحة العامة</h3><p>مراقبة جودة الخدمات الصحية.</p></div>
+     <div class="card"><h3>📋 إدارة الطوارئ</h3><p>تنسيق الاستجابة للحالات الاستثنائية.</p></div>
+     <div class="card"><h3>🚨 مركز العمليات</h3><p>استقبال البلاغات وتنسيق الفرق.</p></div>
+    </div>
+   </section>
+
+   <!-- SERVICES -->
+   <section class="page" id="services">
+    <div class="page-heading"><h2>الخدمات العامة للمواطنين</h2><p>دليل المؤسسات والخدمات الوطنية</p></div>
+    <div class="cards">
+     <div class="card"><h3>🪪 الهوية الوطنية</h3><p>خدمة تسجيل المواطنين وإصدار الهوية داخل RP.</p></div>
+     <div class="card"><h3>🚘 تسجيل المركبات</h3><p>تسجيل السيارات والمركبات.</p></div>
+     <div class="card"><h3>📄 الوثائق الرسمية</h3><p>طلبات الشهادات والتراخيص الافتراضية.</p></div>
+     <div class="card"><h3>⚖ الخدمات القضائية</h3><p>متابعة القضايا والإجراءات القانونية.</p></div>
+     <div class="card"><h3>💼 التوظيف</h3><p>التقديم على الوظائف الحكومية.</p></div>
+     <div class="card"><h3>🏢 السجل التجاري</h3><p>تسجيل الشركات والمنشآت.</p></div>
+     <div class="card"><h3>📞 الشكايات</h3><p>تقديم الشكايات والبلاغات الرسمية.</p></div>
+     <div class="card"><h3>📋 المواعيد</h3><p>تنظيم مواعيد المؤسسات الحكومية.</p></div>
+    </div>
+   </section>
+
+   <!-- APPOINTMENTS -->
+   <section class="page" id="appointments">
+    <div class="page-heading"><h2>التعيينات الرسمية</h2><p>المناصب العليا والمسؤوليات الوطنية</p></div>
+    <div class="panel">
+     <h3 class="panel-title">سجل المناصب الحكومية</h3>
+     <div class="document"><h3>رئيس الدولة</h3><p>WAEL BRIKI — رئاسة الدولة.</p></div>
+     <div class="document"><h3>رئيس الحكومة</h3><p>ADAM BENALI — مجلس الوزراء.</p></div>
+     <div class="document"><h3>رئيس البرلمان</h3><p>OMAR EL MANSOURI — السلطة التشريعية.</p></div>
+     <div class="document"><h3>رئيس المحكمة العليا</h3><p>RAYAN EL IDRISSI — السلطة القضائية.</p></div>
+     <div class="document"><h3>المدير العام للأمن</h3><p>KARIM EL FASSI — الأمن الوطني.</p></div>
+    </div>
+    <div class="notice">يتم اعتماد أي تعيين أو إعفاء جديد بقرار رسمي صادر عن الجهة المختصة.</div>
+   </section>
+
+   <!-- CALENDAR -->
+   <section class="page" id="calendar">
+    <div class="page-heading"><h2>الأجندة الوطنية</h2><p>الاجتماعات والجلسات والفعاليات الحكومية</p></div>
+    <div class="timeline">
+     <div class="timeline-item"><h3>اجتماع مجلس الوزراء</h3><p>اجتماع دوري لمناقشة الملفات الحكومية والوزارية.</p></div>
+     <div class="timeline-item"><h3>الجلسة البرلمانية العامة</h3><p>مناقشة مشاريع القوانين والتصويت عليها.</p></div>
+     <div class="timeline-item"><h3>اجتماع المجلس الأعلى للأمن</h3><p>مراجعة الخطط الأمنية ومستوى الاستعداد.</p></div>
+     <div class="timeline-item"><h3>المؤتمر الاقتصادي الوطني</h3><p>مناقشة الاستثمار والميزانية والمشاريع.</p></div>
+     <div class="timeline-item"><h3>الاحتفال باليوم الوطني</h3><p>فعاليات وطنية رسمية داخل المدينة.</p></div>
+    </div>
+   </section>
+
+   <!-- HONORS -->
+   <section class="page" id="honors">
+    <div class="page-heading"><h2>الأوسمة والتكريمات الوطنية</h2><p>التقدير الرسمي للخدمة والإنجاز</p></div>
+    <div class="cards">
+     <div class="card"><div class="card-icon">🏅</div><h3>وسام الاستحقاق الوطني</h3><p>للمساهمات المتميزة في خدمة الدولة.</p></div>
+     <div class="card"><div class="card-icon">⭐</div><h3>وسام الشجاعة</h3><p>للأعمال الاستثنائية في حماية المواطنين.</p></div>
+     <div class="card"><div class="card-icon">🎖</div><h3>وسام الخدمة الممتازة</h3><p>للموظفين المتميزين في المؤسسات الحكومية.</p></div>
+     <div class="card"><div class="card-icon">🏆</div><h3>وسام التميز المدني</h3><p>للمبادرات المجتمعية والوطنية.</p></div>
+    </div>
+   </section>
+
+   <!-- NEWS -->
+   <section class="page" id="news">
+    <div class="page-heading"><h2>الأخبار والبيانات الحكومية</h2><p>المستجدات والإعلانات الرسمية</p></div>
+    <input class="searchbox" id="newsSearch" placeholder="ابحث في الأخبار..." oninput="filterNews()">
+    <div id="newsList"></div>
+   </section>
+
+   <!-- CONTACT -->
+   <section class="page" id="contact">
+    <div class="page-heading"><h2>التواصل مع الحكومة</h2><p>قنوات الاتصال الرسمية والمؤسسات</p></div>
+    <div class="cards">
+     <div class="card"><h3>ديوان الرئاسة</h3><p>المراسلات الرسمية والشؤون الرئاسية.</p></div>
+     <div class="card"><h3>الأمانة العامة للحكومة</h3><p>الملفات الحكومية والتنسيق الوزاري.</p></div>
+     <div class="card"><h3>مكتب البرلمان</h3><p>الاستفسارات والطلبات التشريعية.</p></div>
+     <div class="card"><h3>مكتب المواطنين</h3><p>الاقتراحات والشكايات العامة.</p></div>
+    </div>
+    <div class="panel" style="margin-top:17px">
+     <h3 class="panel-title">بوابة الاتصال</h3>
+     <p class="intro">يمكن للمواطنين التواصل مع إدارة السيرفر عبر قنوات MAKS CITY الرسمية.</p>
+     <a class="btn" href="https://discord.com/" target="_blank" rel="noopener">قناة Discord الرسمية</a>
+    </div>
+   </section>
+
   </main>
  </div>
 </div>
 
 <footer>
- MAKS CITY GOVERNMENT © 2026 — جميع الحقوق محفوظة
- <br>نظام إداري خاص بسيرفر Roblox RP
+ <div class="footer-grid">
+  <div>
+   <h3>دولة MAKS CITY</h3>
+   <p>البوابة الحكومية الرسمية لدولة MAKS CITY داخل عالم Roblox Roleplay.
+   منصة مؤسساتية تهدف إلى تنظيم الإدارة والحكومة والقطاعات الوطنية
+   وتوثيق القوانين والقرارات الرسمية.</p>
+  </div>
+  <div>
+   <h3>المؤسسات</h3>
+   <p><a href="#" onclick="go('presidency')">رئاسة الدولة</a></p>
+   <p><a href="#" onclick="go('cabinet')">مجلس الوزراء</a></p>
+   <p><a href="#" onclick="go('parliament')">البرلمان</a></p>
+   <p><a href="#" onclick="go('ministries')">الوزارات</a></p>
+  </div>
+  <div>
+   <h3>المعلومات الرسمية</h3>
+   <p><a href="#" onclick="go('laws')">الدستور والقوانين</a></p>
+   <p><a href="#" onclick="go('decisions')">القرارات والمراسيم</a></p>
+   <p><a href="#" onclick="go('services')">الخدمات العامة</a></p>
+   <p><a href="#" onclick="go('contact')">التواصل</a></p>
+  </div>
+ </div>
+ <div class="footer-bottom">
+  MAKS CITY GOVERNMENT © 2026 — OFFICIAL ROLEPLAY GOVERNMENT PORTAL
+  <br>جميع الأسماء والقرارات والميزانيات الواردة في هذا الموقع افتراضية وخاصة بالسيرفر.
+ </div>
 </footer>
 
-<div id="loginModal" class="login-overlay hidden">
- <div class="login-box">
-  <h2>دخول الإدارة</h2>
-  <p class="subtitle">MAKS CITY ADMINISTRATION</p>
-  <input id="username" placeholder="اسم المستخدم">
-  <input id="password" type="password" placeholder="كلمة المرور">
-  <div class="notice">حساب تجريبي: admin / MAKS2026 — غيّر بياناته قبل النشر.</div>
-  <div class="actions">
-   <button class="primary" onclick="login()">تسجيل الدخول</button>
-   <button class="secondary" onclick="closeLogin()">إلغاء</button>
-  </div>
-  <p id="loginError" style="color:#ff6976;font-size:12px"></p>
- </div>
-</div>
-
 <script>
-"use strict";
-
-const KEY="MAKS_CITY_GOVERNMENT_V1";
-
-const initialData={
- decisions:[
-  {id:1,title:"تأسيس الحكومة المركزية",type:"قرار ملكي",
-   date:"2026-11-05",body:"تم اعتماد الحكومة المركزية لمدينة MAKS CITY."}
- ],
- laws:[
-  {id:2,title:"قانون احترام القانون",type:"قانون عام",
-   body:"يجب على جميع المواطنين احترام قوانين المدينة وتعليمات السلطات المختصة."},
-  {id:3,title:"قانون السير",type:"قانون المرور",
-   body:"يجب احترام إشارات المرور والسرعة المحددة وعدم تعريض المواطنين للخطر."},
-  {id:4,title:"قانون الوظائف الحكومية",type:"قانون إداري",
-   body:"يجب على جميع الموظفين الحكوميين الالتزام بالرتب والتعليمات والمسؤوليات."}
- ],
- announcements:[],
- applications:[]
-};
-
-let data;
-try{
- data=JSON.parse(localStorage.getItem(KEY))||initialData;
-}catch(e){data=initialData;}
-
-let isAdmin=false;
-let currentPage="home";
-
-function save(){
- localStorage.setItem(KEY,JSON.stringify(data));
- updateStats();
-}
-
-function updateStats(){
- document.getElementById("decisionCount").textContent=data.decisions.length;
- document.getElementById("lawCount").textContent=data.laws.length;
-}
-
-function escapeHTML(value){
- return String(value??"").replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",
- '"':"&quot;","'":"&#39;"
- }[c]));
-}
-
-const departments=[
- ["🏛️","رئاسة الحكومة","الإشراف على المؤسسات والقرارات الحكومية."],
- ["🚔","وزارة الداخلية","الشرطة والأمن العام والتحقيقات."],
- ["🚑","وزارة الصحة والطوارئ","الإسعاف والإنقاذ والخدمات الطبية."],
- ["🚒","وزارة الحماية المدنية","الإطفاء ومكافحة الحرائق والإنقاذ."],
- ["💰","وزارة المالية","الميزانية والخزينة والمشاريع."],
- ["🚘","وزارة النقل","السير والنقل والميكانيكيون."]
+const ministers=[
+ ["ADAM BENALI","رئيس مجلس الوزراء","رئاسة الحكومة"],
+ ["YASSINE AMRANI","نائب رئيس الحكومة","رئاسة الحكومة"],
+ ["KARIM EL FASSI","وزير الداخلية","وزارة الداخلية"],
+ ["RAYAN EL IDRISSI","وزير العدل","وزارة العدل"],
+ ["OMAR BENSAID","وزير المالية والاقتصاد","وزارة المالية"],
+ ["HAMZA EL ALAOUI","وزير الدفاع","وزارة الدفاع"],
+ ["ANAS CHERKAOUI","وزير الصحة","وزارة الصحة"],
+ ["SAMI EL MANSOUR","وزير النقل والتجهيز","وزارة النقل"],
+ ["AYOUB ZEROUALI","وزير التعليم","وزارة التعليم"],
+ ["MEHDI EL AMRANI","وزير الخارجية","وزارة الخارجية"],
+ ["NOUR EL HOUDA","وزيرة الثقافة والإعلام","وزارة الثقافة"],
+ ["BILAL TAZI","وزير العمل والتشغيل","وزارة العمل"],
+ ["ZAKARIA BOUAZZA","وزير الصناعة والتجارة","وزارة الصناعة"],
+ ["AMINE EL KHATIB","وزير البيئة والتنمية","وزارة البيئة"],
+ ["HAMZA BENALI","وزير الشؤون الاجتماعية","وزارة الشؤون الاجتماعية"]
 ];
 
-function showPage(name){
- currentPage=name;
- document.querySelectorAll(".nav").forEach(b=>{
- b.classList.toggle("active",b.dataset.page===name);
- });
- render();
+const ministries=[
+ ["🏛","وزارة الداخلية","KARIM EL FASSI","الأمن العام والشرطة والإدارة الترابية."],
+ ["⚖","وزارة العدل","RAYAN EL IDRISSI","المحاكم والقضاء والنيابة العامة والسجون."],
+ ["💰","وزارة المالية والاقتصاد","OMAR BENSAID","الخزينة والميزانية والضرائب والاستثمار."],
+ ["🛡","وزارة الدفاع","HAMZA EL ALAOUI","الدفاع الوطني والتنسيق الأمني."],
+ ["🏥","وزارة الصحة","ANAS CHERKAOUI","المستشفيات والإسعاف والصحة العامة."],
+ ["🚘","وزارة النقل والتجهيز","SAMI EL MANSOUR","الطرق والمواصلات والبنية التحتية."],
+ ["🎓","وزارة التربية والتعليم","AYOUB ZEROUALI","المدارس والتعليم والتكوين."],
+ ["🌐","وزارة الخارجية","MEHDI EL AMRANI","العلاقات الخارجية والتمثيل الدبلوماسي."],
+ ["🎭","وزارة الثقافة والإعلام","NOUR EL HOUDA","الثقافة والفعاليات والإعلام الوطني."],
+ ["💼","وزارة العمل والتشغيل","BILAL TAZI","الوظائف وسوق العمل والتوظيف."],
+ ["🏭","وزارة الصناعة والتجارة","ZAKARIA BOUAZZA","التجارة والشركات والاستثمار الصناعي."],
+ ["🌳","وزارة البيئة والتنمية","AMINE EL KHATIB","البيئة والحدائق والتنمية المستدامة."]
+];
+
+const departments=[
+ ["المديرية العامة للأمن الوطني","وزارة الداخلية"],
+ ["مديرية الشرطة القضائية","وزارة الداخلية"],
+ ["مديرية المرور والسير","وزارة الداخلية"],
+ ["المديرية العامة للحماية المدنية","وزارة الداخلية"],
+ ["المديرية العامة للسجون","وزارة العدل"],
+ ["المحكمة العليا","وزارة العدل"],
+ ["النيابة العامة","وزارة العدل"],
+ ["الخزينة العامة للدولة","وزارة المالية"],
+ ["مديرية الضرائب","وزارة المالية"],
+ ["ديوان المحاسبة","وزارة المالية"],
+ ["المستشفى الوطني المركزي","وزارة الصحة"],
+ ["المديرية العامة للإسعاف","وزارة الصحة"],
+ ["مديرية الطرق والنقل","وزارة النقل"],
+ ["مديرية تسجيل المركبات","وزارة النقل"],
+ ["مديرية التعليم العام","وزارة التعليم"],
+ ["المعهد الوطني للتكوين","وزارة التعليم"],
+ ["مديرية العلاقات الخارجية","وزارة الخارجية"],
+ ["مديرية الإعلام الحكومي","وزارة الثقافة والإعلام"],
+ ["مديرية التشغيل الوطني","وزارة العمل"],
+ ["هيئة حماية البيئة","وزارة البيئة"]
+];
+
+const laws=[
+ ["قانون احترام النظام العام","يجب على جميع المواطنين واللاعبين احترام النظام العام وعدم تعطيل المؤسسات الحكومية."],
+ ["قانون المرور","احترام إشارات المرور والسرعة والقيادة المسؤولة داخل المدينة."],
+ ["قانون الوظيفة الحكومية","الالتزام بالرتب والتسلسل الإداري والواجبات المهنية."],
+ ["قانون الشرطة","تلتزم الشرطة باحترام الإجراءات المعتمدة وعدم إساءة استخدام الصلاحيات."],
+ ["قانون الإسعاف","تلتزم الفرق الطبية بالاستجابة للبلاغات ومساعدة المصابين."],
+ ["قانون السلاح","تنظم حيازة واستعمال الأسلحة داخل RP وفق قواعد السيرفر."],
+ ["قانون القضاء","تتم المحاكمات وفق إجراءات عادلة واحترام حقوق الأطراف."],
+ ["قانون المؤسسات العامة","يمنع تخريب أو تعطيل المؤسسات والمرافق العامة."],
+ ["قانون الشركات","يجب على الشركات الالتزام بقواعد النشاط التجاري داخل المدينة."],
+ ["قانون حماية المواطنين","يحظر الاعتداء والتهديد والابتزاز وممارسة الفوضى."],
+ ["قانون التوظيف","يجب احترام شروط القبول والتدريب والترقيات."],
+ ["قانون الطوارئ","تنظم حالات الطوارئ بقرارات رسمية من الجهات المختصة."]
+];
+
+const decisions=[
+ ["مرسوم تأسيس الحكومة المركزية","اعتماد الهيكل الحكومي المركزي لدولة MAKS CITY.","رئاسة الدولة"],
+ ["قرار تشكيل مجلس الوزراء","اعتماد التشكيلة الوزارية وتوزيع الاختصاصات.","رئاسة الحكومة"],
+ ["قرار تأسيس البرلمان الوطني","إنشاء المؤسسة التشريعية واللجان البرلمانية.","رئاسة الدولة"],
+ ["قرار اعتماد الدستور","اعتماد الدستور الوطني المرجعي للسيرفر.","الجهة الدستورية"],
+ ["قرار تنظيم وزارة الداخلية","اعتماد الهيكل التنظيمي للأمن الوطني.","وزارة الداخلية"],
+ ["قرار اعتماد الميزانية الوطنية","اعتماد الميزانية التقديرية للقطاعات الحكومية.","وزارة المالية"],
+ ["قرار إنشاء المحكمة العليا","إنشاء أعلى هيئة قضائية افتراضية.","وزارة العدل"],
+ ["قرار إطلاق المشاريع الوطنية","اعتماد خطة تطوير المدينة ومرافقها.","مجلس الوزراء"]
+];
+
+const news=[
+ ["تشكيل الحكومة المركزية","الإعلان عن الهيكل الجديد لمجلس الوزراء والوزارات الوطنية."],
+ ["اعتماد الدستور الوطني","اعتماد مجموعة من المواد الدستورية لتنظيم مؤسسات الدولة."],
+ ["إطلاق الخطة الوطنية للتطوير","إطلاق برنامج تطوير البنية التحتية والمرافق العامة."],
+ ["افتتاح مشروع الأمن الوطني","تطوير منظومة الشرطة والاستجابة للطوارئ."],
+ ["إطلاق برنامج التوظيف الحكومي","فتح باب الانضمام إلى المؤسسات الحكومية."]
+];
+
+function renderMinisters(){
+ document.getElementById("ministerList").innerHTML=ministers.map((m,i)=>`
+ <div class="minister">
+ <div class="avatar">${i===0?"♙":"♟"}</div>
+ <div><h3>${m[0]}</h3><p>${m[1]}</p><small>${m[2]}</small></div>
+ </div>`).join("");
+}
+
+function renderMinistries(){
+ document.getElementById("ministryGrid").innerHTML=ministries.map(m=>`
+ <div class="card ministry-card">
+ <div class="card-icon">${m[0]}</div>
+ <h3>${m[1]}</h3>
+ <p>${m[3]}</p>
+ <div class="badge">الوزير: ${m[2]}</div>
+ </div>`).join("");
+}
+
+function renderDepartments(){
+ document.getElementById("departmentList").innerHTML=departments.map(d=>`
+ <div class="document"><h3>${d[0]}</h3><p>القطاع التابع: ${d[1]}</p></div>`).join("");
+}
+
+function renderLaws(){
+ document.getElementById("lawList").innerHTML=laws.map((l,i)=>`
+ <div class="document">
+ <small>المادة ${i+1}</small>
+ <h3>${l[0]}</h3><p>${l[1]}</p>
+ </div>`).join("");
+}
+
+function renderDecisions(){
+ document.getElementById("decisionList").innerHTML=decisions.map((d,i)=>`
+ <div class="document">
+ <small>القرار رقم MC-${String(i+1).padStart(3,"0")} | ${d[2]}</small>
+ <h3>${d[0]}</h3><p>${d[1]}</p>
+ </div>`).join("");
+}
+
+function renderNews(){
+ document.getElementById("newsList").innerHTML=news.map((n,i)=>`
+ <div class="document news-item">
+ <small>البيان الحكومي رقم ${String(i+1).padStart(3,"0")}</small>
+ <h3>${n[0]}</h3><p>${n[1]}</p>
+ </div>`).join("");
+ document.getElementById("homeNews").innerHTML=news.slice(0,3).map(n=>`
+ <div class="timeline-item"><h3>${n[0]}</h3><p>${n[1]}</p></div>`).join("");
+}
+
+function go(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.querySelectorAll("[data-page]").forEach(b=>b.classList.remove("active"));
+ const page=document.getElementById(id);
+ if(!page)return;
+ page.classList.add("active");
+ document.querySelectorAll('[data-page="'+id+'"]').forEach(b=>b.classList.add("active"));
  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function adminForm(type){
- if(!isAdmin)return "";
- if(type==="decisions")return `
- <div class="card">
- <h3>إصدار قرار حكومي جديد</h3>
- <form onsubmit="addItem(event,'decisions')">
- <input id="newTitle" required placeholder="عنوان القرار">
- <select id="newType">
- <option>قرار ملكي</option><option>قرار وزاري</option>
- <option>مرسوم حكومي</option><option>قرار طارئ</option>
- </select>
- <textarea id="newBody" required placeholder="نص القرار وتفاصيله"></textarea>
- <button class="primary">نشر القرار رسمياً</button>
- </form></div>`;
- if(type==="laws")return `
- <div class="card">
- <h3>إضافة قانون جديد</h3>
- <form onsubmit="addItem(event,'laws')">
- <input id="newTitle" required placeholder="اسم القانون">
- <select id="newType"><option>قانون عام</option>
- <option>قانون جنائي</option><option>قانون المرور</option>
- <option>قانون إداري</option></select>
- <textarea id="newBody" required placeholder="تفاصيل القانون والعقوبات"></textarea>
- <button class="primary">إصدار القانون</button>
- </form></div>`;
- if(type==="announcements")return `
- <div class="card">
- <h3>إعلان حكومي جديد</h3>
- <form onsubmit="addItem(event,'announcements')">
- <input id="newTitle" required placeholder="عنوان الإعلان">
- <textarea id="newBody" required placeholder="محتوى الإعلان"></textarea>
- <button class="primary">نشر الإعلان</button>
- </form></div>`;
- return "";
-}
+document.querySelectorAll("[data-page]").forEach(btn=>{
+ btn.addEventListener("click",()=>go(btn.dataset.page));
+});
 
-function addItem(event,type){
- event.preventDefault();
- const title=document.getElementById("newTitle").value.trim();
- const body=document.getElementById("newBody").value.trim();
- const category=document.getElementById("newType");
- if(!title||!body)return;
- data[type].unshift({
- id:Date.now(),title,body,
- type:category?category.value:"إعلان حكومي",
- date:new Date().toLocaleDateString("ar")
+function filterMinistries(){
+ const q=document.getElementById("minSearch").value.toLowerCase();
+ document.querySelectorAll(".ministry-card").forEach(card=>{
+ card.style.display=card.textContent.toLowerCase().includes(q)?"":"none";
  });
- save();render();
 }
 
-function deleteItem(type,id){
- if(!isAdmin)return;
- if(!confirm("هل تريد حذف هذا السجل؟"))return;
- data[type]=data[type].filter(x=>x.id!==id);
- save();render();
-}
-
-function listItems(type){
- if(!data[type].length)return '<div class="empty">لا توجد سجلات حالياً.</div>';
- return `<div class="list">${data[type].map(item=>`
- <article class="item">
-  <div class="meta">${escapeHTML(item.type)} • ${escapeHTML(item.date||"")}</div>
-  <h3>${escapeHTML(item.title)}</h3>
-  <p>${escapeHTML(item.body)}</p>
-  ${isAdmin?`<button class="danger" onclick="deleteItem('${type}',${item.id})">حذف</button>`:""}
- </article>`).join("")}</div>`;
-}
-
-function section(title,desc,content){
- return `<h2 class="section-title">${title}</h2>
- <p class="subtitle">${desc}</p>${content}`;
-}
-
-function render(){
- const p=document.getElementById("page");
-
- switch(currentPage){
-
- case "home":
- p.innerHTML=`
- ${section("مرحباً بكم في الحكومة","المركز الحكومي الرسمي لمدينة MAKS CITY",`
- <div class="card">
-  <h3>بيان الحكومة</h3>
-  <p>تعمل حكومة MAKS CITY على تنظيم الحياة داخل المدينة
-  وتطبيق القوانين وتطوير المؤسسات وحماية حقوق المواطنين.
-  جميع القرارات المنشورة هنا تعتبر وثائق رسمية داخل RP.</p>
- </div>
- <h3>آخر القرارات الحكومية</h3>
- ${listItems("decisions")}
- <h3>المؤسسات الحكومية</h3>
- <div class="grid">${departments.map(d=>`
- <div class="card department">
-  <div class="dept-icon">${d[0]}</div>
-  <div><h3>${d[1]}</h3><p>${d[2]}</p></div>
- </div>`).join("")}</div>
- `)}`;
- break;
-
- case "decisions":
- p.innerHTML=section("القرارات الحكومية","السجل الرسمي لجميع القرارات والمراسيم",
- adminForm("decisions")+listItems("decisions"));
- break;
-
- case "laws":
- p.innerHTML=section("القوانين والتشريعات","الدستور والقوانين المعتمدة داخل المدينة",
- adminForm("laws")+listItems("laws"));
- break;
-
- case "ministries":
- p.innerHTML=section("الوزارات والمؤسسات","الهيكل التنظيمي للحكومة المركزية",
- `<div class="grid">${departments.map(d=>`
- <div class="card">
-  <div class="department">
-   <div class="dept-icon">${d[0]}</div>
-   <div><h3>${d[1]}</h3><p>${d[2]}</p></div>
-  </div>
-  <div class="tag">● مؤسسة حكومية</div>
- </div>`).join("")}</div>`);
- break;
-
- case "police":
- p.innerHTML=section("وزارة الداخلية","الأمن الوطني والشرطة",
- `<div class="grid">
- <div class="card"><h3>🚔 الشرطة الوطنية</h3><p>حفظ الأمن وتطبيق القانون والتحقيقات.</p></div>
- <div class="card"><h3>🛡️ القوات الخاصة</h3><p>التدخل في الحالات الأمنية الخاصة.</p></div>
- <div class="card"><h3>🚦 شرطة المرور</h3><p>تنظيم السير ومراقبة الطرق.</p></div>
- <div class="card"><h3>🏢 الإدارة العامة</h3><p>تعيين المسؤولين وإدارة الرتب.</p></div>
- </div>`);
- break;
-
- case "emergency":
- p.innerHTML=section("وزارة الصحة والطوارئ","إدارة الخدمات الطبية والإنقاذ",
- `<div class="grid">
- <div class="card"><h3>🚑 الإسعاف الوطني</h3><p>إنقاذ المصابين وتقديم الرعاية الطبية.</p></div>
- <div class="card"><h3>🚒 الحماية المدنية</h3><p>إخماد الحرائق والتدخل في الحوادث.</p></div>
- </div>`);
- break;
-
- case "economy":
- p.innerHTML=section("وزارة المالية والاقتصاد","الإدارة المالية والمشاريع الحكومية",
- `<div class="card">
- <h3>الميزانية الحكومية</h3>
- <p>تُسجل الميزانية والمصروفات والمشاريع المعتمدة هنا.</p>
- <span class="badge">نظام RP تجريبي</span>
- </div>`);
- break;
-
- case "jobs":
- p.innerHTML=section("التوظيف الحكومي","طلب الانضمام إلى المؤسسات الحكومية",
- `<div class="card">
- <form onsubmit="applyJob(event)">
- <input id="appName" required placeholder="اسم اللاعب في Roblox">
- <select id="appDept">
- <option>الشرطة</option><option>الإسعاف</option>
- <option>الإطفاء</option><option>وزارة المالية</option>
- <option>وزارة النقل</option>
- </select>
- <textarea id="appReason" required placeholder="لماذا تريد الانضمام؟"></textarea>
- <button class="primary">إرسال طلب التوظيف</button>
- </form>
- </div>
- ${isAdmin?`<h3>طلبات التوظيف</h3>${data.applications.map(a=>`
- <div class="item"><b>${escapeHTML(a.name)}</b>
- <p>${escapeHTML(a.dept)} — ${escapeHTML(a.reason)}</p>
- <button class="danger" onclick="deleteItem('applications',${a.id})">حذف الطلب</button>
- </div>`).join("")||"لا توجد طلبات"}`:""}`);
- break;
-
- case "announcements":
- p.innerHTML=section("الإعلانات الرسمية","بلاغات وبيانات الحكومة",
- adminForm("announcements")+listItems("announcements"));
- break;
-
- case "admin":
- p.innerHTML=section("لوحة التحكم","إدارة النظام الحكومي",
- !isAdmin?`<div class="card">يجب تسجيل الدخول بصلاحيات الإدارة أولاً.
- <button class="primary" onclick="openLogin()">دخول الإدارة</button></div>`:`
- <div class="card">
- <h3>مرحباً، مدير النظام</h3>
- <span class="tag">● صلاحيات الإدارة مفعلة</span>
- <div class="actions">
- <button class="secondary" onclick="exportData()">تصدير نسخة احتياطية</button>
- <button class="secondary" onclick="document.getElementById('importFile').click()">استيراد نسخة</button>
- <button class="danger" onclick="logout()">تسجيل الخروج</button>
- </div>
- <input type="file" id="importFile" class="hidden" accept=".json" onchange="importData(event)">
- <p class="subtitle">عدد القرارات: ${data.decisions.length} |
- القوانين: ${data.laws.length} |
- الطلبات: ${data.applications.length}</p>
- </div>
- <div class="notice">تنبيه: البيانات محفوظة محلياً في هذا المتصفح فقط.
- لا توجد قاعدة بيانات مشتركة بين الزوار.</div>`);
- break;
- }
-}
-
-function applyJob(event){
- event.preventDefault();
- data.applications.unshift({
- id:Date.now(),
- name:document.getElementById("appName").value.trim(),
- dept:document.getElementById("appDept").value,
- reason:document.getElementById("appReason").value.trim()
+function filterNews(){
+ const q=document.getElementById("newsSearch").value.toLowerCase();
+ document.querySelectorAll(".news-item").forEach(card=>{
+ card.style.display=card.textContent.toLowerCase().includes(q)?"":"none";
  });
- save();alert("تم إرسال طلبك بنجاح!");
- render();
 }
 
-function openLogin(){
- document.getElementById("loginModal").classList.remove("hidden");
-}
-function closeLogin(){
- document.getElementById("loginModal").classList.add("hidden");
-}
-function login(){
- const u=document.getElementById("username").value;
- const pw=document.getElementById("password").value;
- if(u==="admin"&&pw==="MAKS2026"){
- isAdmin=true;closeLogin();showPage("admin");
- }else{
- document.getElementById("loginError").textContent="بيانات الدخول غير صحيحة.";
- }
-}
-function logout(){
- isAdmin=false;showPage("home");
-}
-function exportData(){
- const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
- const url=URL.createObjectURL(blob);
- const a=document.createElement("a");
- a.href=url;a.download="MAKS-CITY-BACKUP.json";a.click();
- URL.revokeObjectURL(url);
-}
-function importData(event){
- const file=event.target.files[0];
- if(!file)return;
- const reader=new FileReader();
- reader.onload=()=>{
- try{
- const obj=JSON.parse(reader.result);
- if(!obj.decisions||!obj.laws||!obj.announcements||!obj.applications)
- throw new Error("Invalid backup");
- data=obj;save();render();alert("تم استيراد النسخة بنجاح");
- }catch(e){alert("ملف النسخة غير صالح");}
- };
- reader.readAsText(file);
-}
-
-updateStats();
-render();
+renderMinisters();
+renderMinistries();
+renderDepartments();
+renderLaws();
+renderDecisions();
+renderNews();
 </script>
 </body>
 </html>
