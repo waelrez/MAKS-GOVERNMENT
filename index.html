@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAKS CITY | Government</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+:root {
+ --bg:#080a0e;--panel:#11151d;--panel2:#171d27;
+ --red:#e32636;--white:#f5f6fa;--muted:#8992a3;
+ --border:#252d3a;--green:#25bd83;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);
+font-family:'Cairo',Arial,sans-serif}
+button,input,textarea,select{font-family:inherit}
+button{cursor:pointer}
+header{
+ background:#0c1017;border-bottom:1px solid var(--border);
+ padding:16px 5%;display:flex;align-items:center;
+ justify-content:space-between;position:sticky;top:0;z-index:10
+}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--red)}
+.header-right{display:flex;gap:12px;align-items:center}
+.status{font-size:12px;color:var(--green)}
+.login-btn,.primary{
+ background:var(--red);color:white;border:0;
+ padding:10px 18px;border-radius:7px;font-weight:800
+}
+.container{width:92%;max-width:1400px;margin:30px auto}
+.hero{
+ background:linear-gradient(110deg,#1c1015,#121721 65%,#10141d);
+ border:1px solid #49232a;border-radius:13px;padding:32px;
+ position:relative;overflow:hidden
+}
+.hero:after{content:"MC";position:absolute;left:25px;top:-50px;
+font-size:180px;color:#ffffff08;font-weight:900}
+.eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:3px}
+.hero h1{font-size:35px;margin:8px 0}
+.hero p{color:#abb2c0;margin:0;max-width:650px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);
+gap:14px;margin:20px 0}
+.stat,.card{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:10px;padding:19px
+}
+.stat small{color:var(--muted)}
+.stat strong{display:block;font-size:29px;margin-top:7px}
+.stat .red{color:var(--red)}
+.layout{display:grid;grid-template-columns:245px 1fr;gap:18px}
+.sidebar{background:var(--panel);border:1px solid var(--border);
+border-radius:10px;padding:14px;height:max-content}
+.nav-title{color:var(--muted);font-size:11px;margin:12px 10px}
+.nav{
+ width:100%;background:transparent;color:#b7bfcc;border:0;
+ text-align:right;padding:12px;border-radius:7px;margin:3px 0;
+ font-size:14px
+}
+.nav:hover,.nav.active{background:#30171d;color:white}
+.nav.active{border-right:3px solid var(--red)}
+.content{min-width:0}
+.section-title{font-size:22px;font-weight:900;margin:0 0 5px}
+.subtitle{font-size:13px;color:var(--muted);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.department{display:flex;align-items:center;gap:14px}
+.dept-icon{background:#2a171d;color:#ff5966;padding:15px;
+border-radius:9px;font-size:24px}
+.department h3{margin:0;font-size:16px}
+.department p{margin:3px 0;color:var(--muted);font-size:12px}
+.tag{font-size:11px;color:var(--green)}
+.list{display:grid;gap:12px}
+.item{background:var(--panel);border:1px solid var(--border);
+padding:17px;border-radius:9px}
+.item h3{margin:0 0 7px;font-size:16px}
+.item p{color:#b5bdc9;font-size:13px;white-space:pre-wrap}
+.meta{color:var(--muted);font-size:11px}
+.badge{background:#35181e;color:#ff6976;border-radius:5px;
+padding:4px 8px;font-size:11px}
+form{display:grid;gap:12px;margin-bottom:22px}
+input,textarea,select{
+ background:#0b0e14;color:white;border:1px solid var(--border);
+ padding:12px;border-radius:7px;width:100%;outline:none
+}
+input:focus,textarea:focus{border-color:var(--red)}
+textarea{min-height:100px;resize:vertical}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.secondary{background:#242b37;color:white;border:1px solid #343d4c;
+padding:9px 13px;border-radius:6px}
+.danger{background:#421b21;color:#ff7983;border:0;
+padding:8px 12px;border-radius:6px}
+.hidden{display:none!important}
+.empty{text-align:center;color:var(--muted);padding:35px}
+footer{text-align:center;color:#687080;padding:30px;font-size:12px}
+.login-overlay{position:fixed;inset:0;background:#000c;
+display:grid;place-items:center;z-index:30;padding:15px}
+.login-box{background:var(--panel);border:1px solid var(--border);
+padding:28px;border-radius:12px;width:100%;max-width:400px}
+.login-box h2{margin-top:0}
+.login-box input{margin:8px 0}
+.notice{padding:12px;background:#261b1c;border-radius:7px;
+font-size:12px;color:#ffb3b7;margin:12px 0}
+@media(max-width:750px){
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .layout{grid-template-columns:1fr}
+ .sidebar{display:grid;grid-template-columns:repeat(2,1fr)}
+ .nav-title{grid-column:1/-1}
+ .grid{grid-template-columns:1fr}
+ .hero h1{font-size:26px}
+ header{padding:12px 4%}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MAKS <span>CITY</span></div>
+ <div class="header-right">
+  <span class="status">● النظام الحكومي</span>
+  <button class="login-btn" onclick="openLogin()">دخول الإدارة</button>
+ </div>
+</header>
+
+<div class="container">
+ <section class="hero">
+  <div class="eyebrow">MAKS CITY • OFFICIAL PORTAL</div>
+  <h1>الحكومة المركزية</h1>
+  <p>البوابة الرسمية لإدارة مدينة MAKS CITY.
+  القوانين والقرارات والوزارات والمؤسسات الحكومية.</p>
+  <div class="actions">
+   <button class="primary" onclick="showPage('decisions')">القرارات الرسمية</button>
+   <button class="secondary" onclick="showPage('laws')">دستور المدينة</button>
+  </div>
+ </section>
+
+ <section class="stats">
+  <div class="stat"><small>القرارات الحكومية</small>
+   <strong class="red" id="decisionCount">0</strong></div>
+  <div class="stat"><small>القوانين</small>
+   <strong id="lawCount">0</strong></div>
+  <div class="stat"><small>الوزارات</small>
+   <strong>06</strong></div>
+  <div class="stat"><small>حالة الحكومة</small>
+   <strong style="color:var(--green);font-size:20px">نشطة</strong></div>
+ </section>
+
+ <div class="layout">
+  <aside class="sidebar">
+   <div class="nav-title">الرئيسية</div>
+   <button class="nav active" data-page="home" onclick="showPage('home')">⌂ الرئيسية</button>
+   <button class="nav" data-page="decisions" onclick="showPage('decisions')">▣ القرارات الحكومية</button>
+   <button class="nav" data-page="laws" onclick="showPage('laws')">⚖ القوانين والمراسيم</button>
+   <div class="nav-title">المؤسسات</div>
+   <button class="nav" data-page="ministries" onclick="showPage('ministries')">▤ الوزارات</button>
+   <button class="nav" data-page="police" onclick="showPage('police')">♜ وزارة الداخلية</button>
+   <button class="nav" data-page="emergency" onclick="showPage('emergency')">✚ الطوارئ والصحة</button>
+   <button class="nav" data-page="economy" onclick="showPage('economy')">▥ المالية والاقتصاد</button>
+   <div class="nav-title">الإدارة</div>
+   <button class="nav" data-page="jobs" onclick="showPage('jobs')">♙ التوظيف الحكومي</button>
+   <button class="nav" data-page="announcements" onclick="showPage('announcements')">◉ الإعلانات</button>
+   <button class="nav" data-page="admin" onclick="showPage('admin')">⚙ لوحة التحكم</button>
+  </aside>
+
+  <main class="content">
+   <div id="page"></div>
+  </main>
+ </div>
+</div>
+
+<footer>
+ MAKS CITY GOVERNMENT © 2026 — جميع الحقوق محفوظة
+ <br>نظام إداري خاص بسيرفر Roblox RP
+</footer>
+
+<div id="loginModal" class="login-overlay hidden">
+ <div class="login-box">
+  <h2>دخول الإدارة</h2>
+  <p class="subtitle">MAKS CITY ADMINISTRATION</p>
+  <input id="username" placeholder="اسم المستخدم">
+  <input id="password" type="password" placeholder="كلمة المرور">
+  <div class="notice">حساب تجريبي: admin / MAKS2026 — غيّر بياناته قبل النشر.</div>
+  <div class="actions">
+   <button class="primary" onclick="login()">تسجيل الدخول</button>
+   <button class="secondary" onclick="closeLogin()">إلغاء</button>
+  </div>
+  <p id="loginError" style="color:#ff6976;font-size:12px"></p>
+ </div>
+</div>
+
+<script>
+"use strict";
+
+const KEY="MAKS_CITY_GOVERNMENT_V1";
+
+const initialData={
+ decisions:[
+  {id:1,title:"تأسيس الحكومة المركزية",type:"قرار ملكي",
+   date:"2026-11-05",body:"تم اعتماد الحكومة المركزية لمدينة MAKS CITY."}
+ ],
+ laws:[
+  {id:2,title:"قانون احترام القانون",type:"قانون عام",
+   body:"يجب على جميع المواطنين احترام قوانين المدينة وتعليمات السلطات المختصة."},
+  {id:3,title:"قانون السير",type:"قانون المرور",
+   body:"يجب احترام إشارات المرور والسرعة المحددة وعدم تعريض المواطنين للخطر."},
+  {id:4,title:"قانون الوظائف الحكومية",type:"قانون إداري",
+   body:"يجب على جميع الموظفين الحكوميين الالتزام بالرتب والتعليمات والمسؤوليات."}
+ ],
+ announcements:[],
+ applications:[]
+};
+
+let data;
+try{
+ data=JSON.parse(localStorage.getItem(KEY))||initialData;
+}catch(e){data=initialData;}
+
+let isAdmin=false;
+let currentPage="home";
+
+function save(){
+ localStorage.setItem(KEY,JSON.stringify(data));
+ updateStats();
+}
+
+function updateStats(){
+ document.getElementById("decisionCount").textContent=data.decisions.length;
+ document.getElementById("lawCount").textContent=data.laws.length;
+}
+
+function escapeHTML(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",
+ '"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+const departments=[
+ ["🏛️","رئاسة الحكومة","الإشراف على المؤسسات والقرارات الحكومية."],
+ ["🚔","وزارة الداخلية","الشرطة والأمن العام والتحقيقات."],
+ ["🚑","وزارة الصحة والطوارئ","الإسعاف والإنقاذ والخدمات الطبية."],
+ ["🚒","وزارة الحماية المدنية","الإطفاء ومكافحة الحرائق والإنقاذ."],
+ ["💰","وزارة المالية","الميزانية والخزينة والمشاريع."],
+ ["🚘","وزارة النقل","السير والنقل والميكانيكيون."]
+];
+
+function showPage(name){
+ currentPage=name;
+ document.querySelectorAll(".nav").forEach(b=>{
+ b.classList.toggle("active",b.dataset.page===name);
+ });
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function adminForm(type){
+ if(!isAdmin)return "";
+ if(type==="decisions")return `
+ <div class="card">
+ <h3>إصدار قرار حكومي جديد</h3>
+ <form onsubmit="addItem(event,'decisions')">
+ <input id="newTitle" required placeholder="عنوان القرار">
+ <select id="newType">
+ <option>قرار ملكي</option><option>قرار وزاري</option>
+ <option>مرسوم حكومي</option><option>قرار طارئ</option>
+ </select>
+ <textarea id="newBody" required placeholder="نص القرار وتفاصيله"></textarea>
+ <button class="primary">نشر القرار رسمياً</button>
+ </form></div>`;
+ if(type==="laws")return `
+ <div class="card">
+ <h3>إضافة قانون جديد</h3>
+ <form onsubmit="addItem(event,'laws')">
+ <input id="newTitle" required placeholder="اسم القانون">
+ <select id="newType"><option>قانون عام</option>
+ <option>قانون جنائي</option><option>قانون المرور</option>
+ <option>قانون إداري</option></select>
+ <textarea id="newBody" required placeholder="تفاصيل القانون والعقوبات"></textarea>
+ <button class="primary">إصدار القانون</button>
+ </form></div>`;
+ if(type==="announcements")return `
+ <div class="card">
+ <h3>إعلان حكومي جديد</h3>
+ <form onsubmit="addItem(event,'announcements')">
+ <input id="newTitle" required placeholder="عنوان الإعلان">
+ <textarea id="newBody" required placeholder="محتوى الإعلان"></textarea>
+ <button class="primary">نشر الإعلان</button>
+ </form></div>`;
+ return "";
+}
+
+function addItem(event,type){
+ event.preventDefault();
+ const title=document.getElementById("newTitle").value.trim();
+ const body=document.getElementById("newBody").value.trim();
+ const category=document.getElementById("newType");
+ if(!title||!body)return;
+ data[type].unshift({
+ id:Date.now(),title,body,
+ type:category?category.value:"إعلان حكومي",
+ date:new Date().toLocaleDateString("ar")
+ });
+ save();render();
+}
+
+function deleteItem(type,id){
+ if(!isAdmin)return;
+ if(!confirm("هل تريد حذف هذا السجل؟"))return;
+ data[type]=data[type].filter(x=>x.id!==id);
+ save();render();
+}
+
+function listItems(type){
+ if(!data[type].length)return '<div class="empty">لا توجد سجلات حالياً.</div>';
+ return `<div class="list">${data[type].map(item=>`
+ <article class="item">
+  <div class="meta">${escapeHTML(item.type)} • ${escapeHTML(item.date||"")}</div>
+  <h3>${escapeHTML(item.title)}</h3>
+  <p>${escapeHTML(item.body)}</p>
+  ${isAdmin?`<button class="danger" onclick="deleteItem('${type}',${item.id})">حذف</button>`:""}
+ </article>`).join("")}</div>`;
+}
+
+function section(title,desc,content){
+ return `<h2 class="section-title">${title}</h2>
+ <p class="subtitle">${desc}</p>${content}`;
+}
+
+function render(){
+ const p=document.getElementById("page");
+
+ switch(currentPage){
+
+ case "home":
+ p.innerHTML=`
+ ${section("مرحباً بكم في الحكومة","المركز الحكومي الرسمي لمدينة MAKS CITY",`
+ <div class="card">
+  <h3>بيان الحكومة</h3>
+  <p>تعمل حكومة MAKS CITY على تنظيم الحياة داخل المدينة
+  وتطبيق القوانين وتطوير المؤسسات وحماية حقوق المواطنين.
+  جميع القرارات المنشورة هنا تعتبر وثائق رسمية داخل RP.</p>
+ </div>
+ <h3>آخر القرارات الحكومية</h3>
+ ${listItems("decisions")}
+ <h3>المؤسسات الحكومية</h3>
+ <div class="grid">${departments.map(d=>`
+ <div class="card department">
+  <div class="dept-icon">${d[0]}</div>
+  <div><h3>${d[1]}</h3><p>${d[2]}</p></div>
+ </div>`).join("")}</div>
+ `)}`;
+ break;
+
+ case "decisions":
+ p.innerHTML=section("القرارات الحكومية","السجل الرسمي لجميع القرارات والمراسيم",
+ adminForm("decisions")+listItems("decisions"));
+ break;
+
+ case "laws":
+ p.innerHTML=section("القوانين والتشريعات","الدستور والقوانين المعتمدة داخل المدينة",
+ adminForm("laws")+listItems("laws"));
+ break;
+
+ case "ministries":
+ p.innerHTML=section("الوزارات والمؤسسات","الهيكل التنظيمي للحكومة المركزية",
+ `<div class="grid">${departments.map(d=>`
+ <div class="card">
+  <div class="department">
+   <div class="dept-icon">${d[0]}</div>
+   <div><h3>${d[1]}</h3><p>${d[2]}</p></div>
+  </div>
+  <div class="tag">● مؤسسة حكومية</div>
+ </div>`).join("")}</div>`);
+ break;
+
+ case "police":
+ p.innerHTML=section("وزارة الداخلية","الأمن الوطني والشرطة",
+ `<div class="grid">
+ <div class="card"><h3>🚔 الشرطة الوطنية</h3><p>حفظ الأمن وتطبيق القانون والتحقيقات.</p></div>
+ <div class="card"><h3>🛡️ القوات الخاصة</h3><p>التدخل في الحالات الأمنية الخاصة.</p></div>
+ <div class="card"><h3>🚦 شرطة المرور</h3><p>تنظيم السير ومراقبة الطرق.</p></div>
+ <div class="card"><h3>🏢 الإدارة العامة</h3><p>تعيين المسؤولين وإدارة الرتب.</p></div>
+ </div>`);
+ break;
+
+ case "emergency":
+ p.innerHTML=section("وزارة الصحة والطوارئ","إدارة الخدمات الطبية والإنقاذ",
+ `<div class="grid">
+ <div class="card"><h3>🚑 الإسعاف الوطني</h3><p>إنقاذ المصابين وتقديم الرعاية الطبية.</p></div>
+ <div class="card"><h3>🚒 الحماية المدنية</h3><p>إخماد الحرائق والتدخل في الحوادث.</p></div>
+ </div>`);
+ break;
+
+ case "economy":
+ p.innerHTML=section("وزارة المالية والاقتصاد","الإدارة المالية والمشاريع الحكومية",
+ `<div class="card">
+ <h3>الميزانية الحكومية</h3>
+ <p>تُسجل الميزانية والمصروفات والمشاريع المعتمدة هنا.</p>
+ <span class="badge">نظام RP تجريبي</span>
+ </div>`);
+ break;
+
+ case "jobs":
+ p.innerHTML=section("التوظيف الحكومي","طلب الانضمام إلى المؤسسات الحكومية",
+ `<div class="card">
+ <form onsubmit="applyJob(event)">
+ <input id="appName" required placeholder="اسم اللاعب في Roblox">
+ <select id="appDept">
+ <option>الشرطة</option><option>الإسعاف</option>
+ <option>الإطفاء</option><option>وزارة المالية</option>
+ <option>وزارة النقل</option>
+ </select>
+ <textarea id="appReason" required placeholder="لماذا تريد الانضمام؟"></textarea>
+ <button class="primary">إرسال طلب التوظيف</button>
+ </form>
+ </div>
+ ${isAdmin?`<h3>طلبات التوظيف</h3>${data.applications.map(a=>`
+ <div class="item"><b>${escapeHTML(a.name)}</b>
+ <p>${escapeHTML(a.dept)} — ${escapeHTML(a.reason)}</p>
+ <button class="danger" onclick="deleteItem('applications',${a.id})">حذف الطلب</button>
+ </div>`).join("")||"لا توجد طلبات"}`:""}`);
+ break;
+
+ case "announcements":
+ p.innerHTML=section("الإعلانات الرسمية","بلاغات وبيانات الحكومة",
+ adminForm("announcements")+listItems("announcements"));
+ break;
+
+ case "admin":
+ p.innerHTML=section("لوحة التحكم","إدارة النظام الحكومي",
+ !isAdmin?`<div class="card">يجب تسجيل الدخول بصلاحيات الإدارة أولاً.
+ <button class="primary" onclick="openLogin()">دخول الإدارة</button></div>`:`
+ <div class="card">
+ <h3>مرحباً، مدير النظام</h3>
+ <span class="tag">● صلاحيات الإدارة مفعلة</span>
+ <div class="actions">
+ <button class="secondary" onclick="exportData()">تصدير نسخة احتياطية</button>
+ <button class="secondary" onclick="document.getElementById('importFile').click()">استيراد نسخة</button>
+ <button class="danger" onclick="logout()">تسجيل الخروج</button>
+ </div>
+ <input type="file" id="importFile" class="hidden" accept=".json" onchange="importData(event)">
+ <p class="subtitle">عدد القرارات: ${data.decisions.length} |
+ القوانين: ${data.laws.length} |
+ الطلبات: ${data.applications.length}</p>
+ </div>
+ <div class="notice">تنبيه: البيانات محفوظة محلياً في هذا المتصفح فقط.
+ لا توجد قاعدة بيانات مشتركة بين الزوار.</div>`);
+ break;
+ }
+}
+
+function applyJob(event){
+ event.preventDefault();
+ data.applications.unshift({
+ id:Date.now(),
+ name:document.getElementById("appName").value.trim(),
+ dept:document.getElementById("appDept").value,
+ reason:document.getElementById("appReason").value.trim()
+ });
+ save();alert("تم إرسال طلبك بنجاح!");
+ render();
+}
+
+function openLogin(){
+ document.getElementById("loginModal").classList.remove("hidden");
+}
+function closeLogin(){
+ document.getElementById("loginModal").classList.add("hidden");
+}
+function login(){
+ const u=document.getElementById("username").value;
+ const pw=document.getElementById("password").value;
+ if(u==="admin"&&pw==="MAKS2026"){
+ isAdmin=true;closeLogin();showPage("admin");
+ }else{
+ document.getElementById("loginError").textContent="بيانات الدخول غير صحيحة.";
+ }
+}
+function logout(){
+ isAdmin=false;showPage("home");
+}
+function exportData(){
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="MAKS-CITY-BACKUP.json";a.click();
+ URL.revokeObjectURL(url);
+}
+function importData(event){
+ const file=event.target.files[0];
+ if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{
+ try{
+ const obj=JSON.parse(reader.result);
+ if(!obj.decisions||!obj.laws||!obj.announcements||!obj.applications)
+ throw new Error("Invalid backup");
+ data=obj;save();render();alert("تم استيراد النسخة بنجاح");
+ }catch(e){alert("ملف النسخة غير صالح");}
+ };
+ reader.readAsText(file);
+}
+
+updateStats();
+render();
+</script>
+</body>
+</html>
